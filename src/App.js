@@ -5,6 +5,8 @@ import { TextField, Button, Container, Grid } from "@material-ui/core"
 
 const ENDPOINT = "http://10.20.40.57:5000"
 
+const socket = io(ENDPOINT)
+
 export default function App() {
   return (
     <Router>
@@ -134,7 +136,6 @@ const Chatbox = ({ username }) => {
   const [messages, setMessages] = useState([])
 
   useEffect(() => {
-    const socket = io(ENDPOINT)
     setSocket(socket.open())
     socket.emit("join", { username: username }, (error) => {
       if (error) {
