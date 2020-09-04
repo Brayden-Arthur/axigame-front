@@ -155,7 +155,9 @@ const Chatbox = ({ username }) => {
 
   useEffect(() => {
     handleNewMessages()
-    return socket.off("message")
+    return () => {
+      socket.off("message")
+    }
   }, [messages])
 
   const submitCallback = (message) => {
