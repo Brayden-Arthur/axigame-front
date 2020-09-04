@@ -154,7 +154,7 @@ const Chatbox = ({ username }) => {
         setMessages([...messages, message])
       })
     }
-  })
+  }, [socket])
 
   const submitCallback = (message) => {
     setMessages([...messages, message])
