@@ -5,7 +5,7 @@ import { TextField, Button, Container, Grid } from "@material-ui/core"
 
 const ENDPOINT = "http://10.20.40.57:5000"
 
-const socket = io(ENDPOINT)
+var socket = io(ENDPOINT) //don't do this
 
 export default function App() {
   return (
