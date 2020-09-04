@@ -3,7 +3,7 @@ import io from "socket.io-client"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 import { TextField, Button, Container, Grid } from "@material-ui/core"
 
-const ENDPOINT = "http://10.20.40.83:5000"
+const ENDPOINT = "http://10.20.40.57:5000"
 
 export default function App() {
   return (
@@ -113,9 +113,7 @@ const Game = (props) => {
 const VideoFeed = () => {
 
   useEffect(() => {
-    document.getElementById('stream').addEventListener("load", function(i) {
-      console.log(i)
-    });
+    document.getElementById('stream').contentWindow.find("img").setAttribute("style", "width: '100%';")
   })
 
   return (
