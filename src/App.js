@@ -153,7 +153,7 @@ const Chatbox = ({ username }) => {
         setMessages([...messages, message])
       })
     }
-  }, [])
+  }, [message])
 
   const submitCallback = (message) => {
     setMessages([...messages, message])
