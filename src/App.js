@@ -147,13 +147,11 @@ const Chatbox = ({ username }) => {
   }, [])
 
   useEffect(() => {
-    if (socket) {
-      socket.on("message", (message) => {
-        console.log(message)
-        setMessages([...messages, message])
-      })
-    }
-  }, [message])
+    socket.on("message", (message) => {
+      console.log(message)
+      setMessages([...messages, message])
+    })
+  }, [])
 
   const submitCallback = (message) => {
     setMessages([...messages, message])
