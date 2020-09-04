@@ -145,7 +145,7 @@ const Chatbox = ({ username }) => {
       socket.emit("disconnect")
       socket.off()
     }
-  }, [])
+  }, [socket])
 
   useEffect(() => {
     if (socket) {
@@ -154,7 +154,7 @@ const Chatbox = ({ username }) => {
         setMessages([...messages, message])
       })
     }
-  })
+  }, [socket])
 
   const submitCallback = (message) => {
     setMessages([...messages, message])
