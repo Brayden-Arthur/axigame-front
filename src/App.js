@@ -113,7 +113,7 @@ const Game = (props) => {
 const VideoFeed = () => {
 
   useEffect(() => {
-    document.getElementById('stream').contentWindow.find("img").setAttribute("style", "width: '100%';")
+    //document.getElementById('stream').contentWindow.find("img").setAttribute("style", "width: '100%';")
   })
 
   return (
