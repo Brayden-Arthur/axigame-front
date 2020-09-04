@@ -145,7 +145,7 @@ const Chatbox = ({ username }) => {
       socket.emit("disconnect")
       socket.off()
     }
-  }, [])
+  }, [socket])
 
   useEffect(() => {
     if (socket) {
