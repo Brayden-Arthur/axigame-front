@@ -5,8 +5,6 @@ import { TextField, Button, Container, Grid } from "@material-ui/core"
 
 const ENDPOINT = "http://10.20.40.57:5000"
 
-var socket = io(ENDPOINT) //don't do this
-
 export default function App() {
   return (
     <Router>
@@ -132,11 +130,11 @@ const VideoFeed = () => {
 }
 
 const Chatbox = ({ username }) => {
-  const [socket, setSocket] = useState("")
   const [messages, setMessages] = useState([])
+  const socket = io(ENDPOINT)
 
   useEffect(() => {
-    setSocket(socket.open())
+    socket.open()
     socket.emit("join", { username: username }, (error) => {
       if (error) {
         alert(error)
@@ -155,7 +153,7 @@ const Chatbox = ({ username }) => {
         setMessages([...messages, message])
       })
     }
-  }, [socket])
+  }, [])
 
   const submitCallback = (message) => {
     setMessages([...messages, message])
